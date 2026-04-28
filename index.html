@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -8,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         :root {
             --primary-green: #4A7C59;
@@ -31,7 +31,6 @@
             line-height: 1.6;
         }
 
-        /* 導覽列 */
         nav {
             background-color: white;
             padding: 1rem 5%;
@@ -70,7 +69,6 @@
             color: var(--primary-green);
         }
 
-        /* Hero 區塊 */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -96,7 +94,6 @@
             font-weight: 500;
         }
 
-        /* 內容區塊通用樣式 */
         section {
             padding: 80px 10%;
         }
@@ -108,7 +105,6 @@
             color: var(--dark-olive);
         }
 
-        /* 關於我們 */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -123,7 +119,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        /* 問題與解方 (卡片翻轉效果) */
         .issue-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -133,7 +128,7 @@
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 350px;
+            height: 360px;
             perspective: 1000px;
         }
 
@@ -147,16 +142,15 @@
             cursor: pointer;
         }
 
-        /* 移除 hover 效果，改用 class 控制翻轉 */
         .flip-card.is-flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
 
-        .flip-card-front, .flip-card-back {
+        .flip-card-front,
+        .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
@@ -167,13 +161,12 @@
         }
 
         .flip-card-front {
-            background-color: white;
-            color: var(--dark-olive);
+            background: white;
             border: 2px solid var(--light-green);
         }
 
         .flip-card-back {
-            background-color: var(--primary-green);
+            background: var(--primary-green);
             color: white;
             transform: rotateY(180deg);
         }
@@ -188,34 +181,22 @@
             color: white;
         }
 
-        /* 新增查看更多按鈕樣式 */
         .read-more-btn {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: var(--primary-green);
+            background: var(--primary-green);
             color: white;
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 0.9rem;
             font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .read-more-btn:hover {
-            background-color: var(--dark-olive);
         }
 
         .btn-back {
-            background-color: white;
+            background: white;
             color: var(--primary-green);
         }
 
-        .btn-back:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* 環保測驗區 */
         .quiz-container {
             background: white;
             padding: 40px;
@@ -249,14 +230,6 @@
             margin: 0 auto;
         }
 
-        /* 頁尾 */
-        footer {
-            background: var(--dark-olive);
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-
         .btn {
             background: var(--primary-green);
             color: white;
@@ -264,281 +237,147 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
         }
 
-        .btn:hover {
+        footer {
             background: var(--dark-olive);
+            color: white;
+            text-align: center;
+            padding: 40px;
         }
 
         @media (max-width: 768px) {
-            .about-grid, .result-area {
+            .about-grid,
+            .result-area {
                 grid-template-columns: 1fr;
             }
-            .hero h1 { font-size: 2.5rem; }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">
-            <i class="fas fa-leaf"></i> ECO PULSE
+<nav>
+    <div class="logo">
+        <i class="fas fa-leaf"></i> ECO PULSE
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#issues">問題區</a></li>
+        <li><a href="#quiz">環保測驗</a></li>
+    </ul>
+</nav>
+
+<section id="home" class="hero">
+    <h1>EcoPulse</h1>
+    <p>SDG 12 責任消費與生產</p>
+</section>
+
+<section id="about">
+    <h2 class="section-title">關於我們</h2>
+    <div class="about-grid">
+        <div class="about-card">
+            <h3>問題意識</h3>
+            <p>現代社會存在過度消費、塑膠污染與食物浪費等問題，希望讓使用者了解自身消費習慣對環境的影響。</p>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">首頁</a></li>
-            <li><a href="#about">關於我們</a></li>
-            <li><a href="#issues">問題區</a></li>
-            <li><a href="#quiz">環保測驗</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hero">
-        <h1>EcoPulse</h1>
-        <p>SDG 12 責任消費與生產</p>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">關於我們</h2>
-        <div class="about-grid">
-            <div class="about-card">
-                <h3>問題意識</h3>
-                <p>現代社會存在過度消費、塑膠污染與食物浪費等問題。我們希望透過本網站,讓使用者了解自身的消費習慣對環境的影響。</p>
-            </div>
-            <div class="about-card">
-                <h3>我們的理念</h3>
-                <p>我們致力於將永續發展目標(SDG 12)轉化為簡單的日常生活指標，讓每個人都能成為改變的一份子。</p>
-            </div>
+        <div class="about-card">
+            <h3>我們的理念</h3>
+            <p>將 SDG12 轉化為日常生活中的實際行動，讓每個人都能成為永續改變的一份子。</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="issues" style="background-color: #E9EDC9;">
-        <h2 class="section-title">問題與解決方案</h2>
-        <div class="issue-grid">
+<section id="issues" style="background-color:#E9EDC9;">
+    <h2 class="section-title">問題與解決方案</h2>
+    <div class="issue-grid">
 
-        <!-- 過度消費 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>過度消費</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>永續消費模式</h3>
-                    <p>
-                        現代社會追求快節奏消費，導致資源過度消耗與不必要浪費。<br>
-                        解方：建立永續消費模式，透過環保測驗分析消費習慣，並提供個人化改善建議。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-shopping-cart"></i><h3>過度消費</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-check-circle"></i><h3>永續消費模式</h3><p>建立永續消費模式，分析消費習慣並提供個人化改善建議。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
-        <!-- 塑膠污染 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-box-open"></i>
-                    <h3>塑膠污染</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-recycle"></i>
-                    <h3>減塑政策</h3>
-                    <p>
-                        大量一次性塑膠製品進入環境，造成生態破壞。<br>
-                        解方：推動減塑政策與使用替代方案，減少生產過程中的環境污染。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-box-open"></i><h3>塑膠污染</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-recycle"></i><h3>減塑政策</h3><p>推動減塑政策與替代方案，減少一次性塑膠造成的環境污染。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
-        <!-- 資源與食物浪費 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-apple-alt"></i>
-                    <h3>資源與食物浪費</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-utensils"></i>
-                    <h3>循環利用</h3>
-                    <p>
-                        生產過剩或不當丟棄造成資源與食物大量損耗。<br>
-                        解方：提升資源回收效率、落實垃圾分類，推動循環利用。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-apple-alt"></i><h3>資源與食物浪費</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-utensils"></i><h3>循環利用</h3><p>提升回收效率、落實垃圾分類，推動循環利用。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
-        <!-- 快時尚 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>快時尚衝擊</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-leaf"></i>
-                    <h3>慢時尚</h3>
-                    <p>
-                        廉價衣物大量生產，導致水污染與嚴重的紡織廢棄物問題。<br>
-                        解方：選擇高品質耐穿衣物，參與衣物修補與二手交換。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-tshirt"></i><h3>快時尚衝擊</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-leaf"></i><h3>慢時尚</h3><p>選擇高品質耐穿衣物，參與修補與二手交換。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
-        <!-- 電子垃圾 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-laptop"></i>
-                    <h3>電子垃圾</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-microchip"></i>
-                    <h3>延長使用壽命</h3>
-                    <p>
-                        電子產品更新過快，廢棄後的重金屬污染土壤與水源。<br>
-                        解方：延長使用壽命，並透過專業回收管道提取可再利用資源。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-laptop"></i><h3>電子垃圾</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-microchip"></i><h3>延長使用壽命</h3><p>透過專業回收與延長使用年限，降低重金屬污染。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
-        <!-- 能源浪費 -->
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-bolt"></i>
-                    <h3>能源浪費</h3>
-                    <button class="read-more-btn">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>節能行動</h3>
-                    <p>
-                        不必要的電力消耗增加碳排放，加劇氣候變遷。<br>
-                        解方：隨手關燈、使用節能家電，培養低碳生活習慣。
-                    </p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
+        <div class="flip-card" onclick="toggleFlip(this)"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-bolt"></i><h3>能源浪費</h3><button class="read-more-btn">點擊查看更多</button></div><div class="flip-card-back"><i class="fas fa-lightbulb"></i><h3>節能行動</h3><p>使用節能家電、隨手關燈，培養低碳生活習慣。</p><button class="read-more-btn btn-back">返回</button></div></div></div>
 
     </div>
-    </section>
-    <section id="quiz">
-        <h2 class="section-title">環保指數測驗</h2>
-        <div class="quiz-container">
-            <div id="quiz-form">
-                <div class="question">
-                    <p>1. 您外出時是否會攜帶自備環保袋或餐具？</p>
-                    <div class="options">
-                        <label><input type="radio" name="q1" value="5" checked> 總是</label>
-                        <label><input type="radio" name="q1" value="3"> 偶爾</label>
-                        <label><input type="radio" name="q1" value="1"> 從不</label>
-                    </div>
-                </div>
-                <div class="question">
-                    <p>2. 您是否會主動進行資源回收與垃圾分類？</p>
-                    <div class="options">
-                        <label><input type="radio" name="q2" value="5" checked> 是</label>
-                        <label><input type="radio" name="q2" value="3"> 有時會</label>
-                        <label><input type="radio" name="q2" value="1"> 不會</label>
-                    </div>
-                </div>
-                <div class="question">
-                    <p>3. 您購買商品前是否會考慮其包裝或環境影響？</p>
-                    <div class="options">
-                        <label><input type="radio" name="q3" value="5" checked> 每次都會</label>
-                        <label><input type="radio" name="q3" value="3"> 視情況而定</label>
-                        <label><input type="radio" name="q3" value="1"> 幾乎不考慮</label>
-                    </div>
-                </div>
-                <button class="btn" onclick="calculateScore()">分析我的環保等級</button>
-            </div>
+</section>
 
-            <div class="result-area">
-                <canvas id="radarChart"></canvas>
-                <div id="advice-box">
-                    <h3>您的環保分析</h3>
-                    <p id="total-score-text">請完成測驗以顯示結果。</p>
-                    <div id="personalized-advice" style="margin-top: 15px; color: var(--primary-green); font-weight: bold;"></div>
-                </div>
+<section id="quiz">
+    <h2 class="section-title">環保指數測驗</h2>
+    <div class="quiz-container">
+        <div class="question">
+            <p>1. 外出時是否攜帶環保袋或餐具？</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="5" checked> 總是</label>
+                <label><input type="radio" name="q1" value="3"> 偶爾</label>
+                <label><input type="radio" name="q1" value="1"> 從不</label>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>© 2024 EcoPulse | 資管二B 祝善煦、朱家締、羅乃慈</p>
-        <p>責任消費與生產，從你我開始。</p>
-    </footer>
+        <button class="btn" onclick="calculateScore()">分析我的環保等級</button>
 
-    <script>
-        // 控制卡片翻轉的函式
-        function toggleFlip(card) {
-            card.classList.toggle('is-flipped');
-        }
+        <div class="result-area">
+            <canvas id="radarChart"></canvas>
+            <div>
+                <h3>您的環保分析</h3>
+                <p id="total-score-text">請完成測驗以顯示結果。</p>
+                <div id="personalized-advice"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // 初始化雷達圖
-        const ctx = document.getElementById('radarChart').getContext('2d');
-        let radarChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['消費習慣', '塑膠減量', '資源回收', '能源節約', '交通低碳'],
-                datasets: [{
-                    label: '環保等級分析',
-                    data: [0, 0, 0, 0, 0],
-                    backgroundColor: 'rgba(74, 124, 89, 0.2)',
-                    borderColor: 'rgba(74, 124, 89, 1)',
-                    pointBackgroundColor: 'rgba(74, 124, 89, 1)',
-                }]
-            },
-            options: {
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 5
-                    }
-                }
+<footer>
+    <p>© 2024 EcoPulse</p>
+    <p>責任消費與生產，從你我開始。</p>
+</footer>
+
+<script>
+function toggleFlip(card){
+    card.classList.toggle('is-flipped');
+}
+
+const ctx = document.getElementById('radarChart').getContext('2d');
+let radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['消費習慣','塑膠減量','資源回收','能源節約','交通低碳'],
+        datasets: [{
+            label: '環保等級分析',
+            data: [0,0,0,0,0]
+        }]
+    },
+    options: {
+        scales: {
+            r: {
+                beginAtZero: true,
+                max: 5
             }
-        });
-
-        function calculateScore() {
-            const q1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
-            const q2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
-            const q3 = parseInt(document.querySelector('input[name="q3"]:checked').value);
-            
-            // 模擬隨機權重分配給雷達圖
-            const newData = [q1, q3, q2, (q1+q2)/2, 4];
-            radarChart.data.datasets[0].data = newData;
-            radarChart.update();
-
-            const total = q1 + q2 + q3;
-            document.getElementById('total-score-text').innerText = `您的環保指數為 ${total} / 15 分`;
-            
-            let advice = "";
-            if(total >= 12) advice = "太棒了！您是真正的地球守護者，請繼續維持良好的永續習慣！";
-            else if(total >= 8) advice = "做得很不錯！若能更注意減少一次性包裝的購買，會更完美。";
-            else advice = "環境需要您的關注，建議從攜帶環保袋與餐具開始踏出第一步。";
-            
-            document.getElementById('personalized-advice').innerText = advice;
         }
-    </script>
+    }
+});
+
+function calculateScore(){
+    const q1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
+    radarChart.data.datasets[0].data = [q1,4,4,4,4];
+    radarChart.update();
+
+    document.getElementById('total-score-text').innerText = `您的環保指數為 ${q1 + 8} / 15 分`;
+    document.getElementById('personalized-advice').innerText = '持續培養永續習慣，就是保護地球最好的方式！';
+}
+</script>
+
 </body>
 </html>
+
 
 
 
