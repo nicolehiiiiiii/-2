@@ -102,10 +102,31 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 10px; /* 縮小底部間距以容納提示文字 */
             font-size: 2.5rem;
             color: var(--dark-olive);
         }
+
+        /* --- 新增：提示文字樣式 --- */
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .section-subtitle i {
+            margin-right: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
+        }
+        /* ----------------------- */
 
         /* 關於我們 */
         .about-grid {
@@ -208,14 +229,14 @@
             color: var(--primary-green);
         }
 
-        /* --- 新增：中間彈出區塊的樣式 --- */
+        /* 中間彈出區塊的樣式 */
         .info-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.6);
             backdrop-filter: blur(5px);
-            display: none; /* 初始隱藏 */
+            display: none; 
             justify-content: center;
             align-items: center;
             z-index: 2000;
@@ -248,7 +269,6 @@
             cursor: pointer;
             color: #aaa;
         }
-        /* --------------------------- */
 
         /* 環保測驗區 */
         .quiz-container {
@@ -350,6 +370,8 @@
 
     <section id="issues" style="background-color: #E9EDC9;">
         <h2 class="section-title">問題與解決方案</h2>
+        <p class="section-subtitle"><i class="fas fa-mouse-pointer"></i> 小提醒：點擊卡片任何地方即可翻面看「解方」喔！</p>
+        
         <div class="issue-grid">
 
         <div class="flip-card" onclick="toggleFlip(this)">
@@ -455,9 +477,10 @@
         <div class="info-card" onclick="event.stopPropagation()">
             <span class="close-overlay" onclick="closeDetail()">&times;</span>
             <div id="info-content">
-                </div>
+            </div>
         </div>
     </div>
+
     <section id="quiz">
         <h2 class="section-title">環保指數測驗</h2>
         <div class="quiz-container">
@@ -506,7 +529,6 @@
     </footer>
 
     <script>
-        // --- 新增：成因與危害的資料庫 ---
         const detailData = {
             consumption: {
                 title: "過度消費",
@@ -540,9 +562,7 @@
             }
         };
 
-        // --- 新增：顯示/隱藏中間資訊區塊的函式 ---
         function showDetail(event, key) {
-            // 阻止點擊事件向上傳遞，避免卡片翻轉
             event.stopPropagation();
             const data = detailData[key];
             const content = document.getElementById('info-content');
@@ -561,14 +581,11 @@
         function closeDetail() {
             document.getElementById('infoOverlay').style.display = 'none';
         }
-        // ---------------------------
 
-        // 控制卡片翻轉的函式
         function toggleFlip(card) {
             card.classList.toggle('is-flipped');
         }
 
-        // 初始化雷達圖
         const ctx = document.getElementById('radarChart').getContext('2d');
         let radarChart = new Chart(ctx, {
             type: 'radar',
@@ -608,6 +625,12 @@
             if(total >= 12) advice = "太棒了！您是真正的地球守護者，請繼續維持良好的永續習慣！";
             else if(total >= 8) advice = "做得很不錯！若能更注意減少一次性包裝的購買，會更完美。";
             else advice = "環境需要您的關注，建議從攜帶環保袋與餐具開始踏出第一步。";
+            
+            document.getElementById('personalized-advice').innerText = advice;
+        }
+    </script>
+</body>
+</html>
             
             document.getElementById('personalized-advice').innerText = advice;
         }
