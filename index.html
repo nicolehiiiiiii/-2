@@ -439,6 +439,47 @@
 
     </div>
     </section>
+    <section id="quiz">
+        <h2 class="section-title">環保指數測驗</h2>
+        <div class="quiz-container">
+            <div id="quiz-form">
+                <div class="question">
+                    <p>1. 您外出時是否會攜帶自備環保袋或餐具？</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="5" checked> 總是</label>
+                        <label><input type="radio" name="q1" value="3"> 偶爾</label>
+                        <label><input type="radio" name="q1" value="1"> 從不</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. 您是否會主動進行資源回收與垃圾分類？</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="5" checked> 是</label>
+                        <label><input type="radio" name="q2" value="3"> 有時會</label>
+                        <label><input type="radio" name="q2" value="1"> 不會</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. 您購買商品前是否會考慮其包裝或環境影響？</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="5" checked> 每次都會</label>
+                        <label><input type="radio" name="q3" value="3"> 視情況而定</label>
+                        <label><input type="radio" name="q3" value="1"> 幾乎不考慮</label>
+                    </div>
+                </div>
+                <button class="btn" onclick="calculateScore()">分析我的環保等級</button>
+            </div>
+
+            <div class="result-area">
+                <canvas id="radarChart"></canvas>
+                <div id="advice-box">
+                    <h3>您的環保分析</h3>
+                    <p id="total-score-text">請完成測驗以顯示結果。</p>
+                    <div id="personalized-advice" style="margin-top: 15px; color: var(--primary-green); font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>© 2024 EcoPulse | 資管二B 祝善煦、朱家締、羅乃慈</p>
