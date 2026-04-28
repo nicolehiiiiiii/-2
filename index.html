@@ -15,6 +15,7 @@
             --dark-olive: #3E4C33;
             --text-gray: #4a4a4a;
             --accent-orange: #D98324;
+            --accent-blue: #3A86FF;
         }
 
         * {
@@ -102,12 +103,11 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 10px; /* 縮小底部間距以容納提示文字 */
+            margin-bottom: 10px;
             font-size: 2.5rem;
             color: var(--dark-olive);
         }
 
-        /* --- 新增：提示文字樣式 --- */
         .section-subtitle {
             text-align: center;
             margin-bottom: 40px;
@@ -126,7 +126,6 @@
             40% {transform: translateY(-5px);}
             60% {transform: translateY(-3px);}
         }
-        /* ----------------------- */
 
         /* 關於我們 */
         .about-grid {
@@ -183,6 +182,7 @@
             align-items: center;
             padding: 20px;
             border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .flip-card-front {
@@ -209,7 +209,7 @@
 
         .read-more-btn {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 10px 25px;
             background-color: var(--primary-green);
             color: white;
             border: none;
@@ -220,16 +220,17 @@
             transition: 0.3s;
         }
 
-        .read-more-btn:hover {
-            background-color: var(--dark-olive);
-        }
-
-        .btn-back {
+        .flip-card-back .read-more-btn {
             background-color: white;
             color: var(--primary-green);
         }
 
-        /* 中間彈出區塊的樣式 */
+        .read-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 彈出區塊樣式 */
         .info-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -258,9 +259,9 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        .info-card h3 { color: var(--accent-orange); margin-bottom: 15px; }
-        .info-card h4 { margin-top: 15px; color: var(--dark-olive); }
-        .info-card p { margin-bottom: 10px; color: var(--text-gray); }
+        .info-card h3 { font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .info-card h4 { margin-top: 15px; display: flex; align-items: center; gap: 8px; }
+        .info-card p { margin-bottom: 15px; color: var(--text-gray); line-height: 1.8; }
 
         .close-overlay {
             position: absolute;
@@ -359,11 +360,11 @@
         <div class="about-grid">
             <div class="about-card">
                 <h3>問題意識</h3>
-                <p>現代社會存在過度消費、塑膠污染與食物浪費等問題。我們希望透過本網站,讓使用者了解自身的消費習慣對環境的影響。</p>
+                <p>現代社會存在過度消費、塑膠污染與食物浪費等問題。我們希望透過本網站，讓使用者了解自身的消費習慣對環境的影響。</p>
             </div>
             <div class="about-card">
                 <h3>我們的理念</h3>
-                <p>我們致力於將永續發展目標(SDG 12)轉化為簡單的日常生活指標，讓每個人都能成為改變的一份子。</p>
+                <p>我們致力於將永續發展目標 (SDG 12) 轉化為簡單的日常生活指標，讓每個人都能成為改變的一份子。</p>
             </div>
         </div>
     </section>
@@ -374,110 +375,110 @@
         
         <div class="issue-grid">
 
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>過度消費</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'consumption')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>永續消費模式</h3>
-                    <p>解方：建立永續消費模式，透過環保測驗分析消費習慣，並提供個人化改善建議。</p>
-                    <button class="read-more-btn btn-back">返回</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-box-open"></i>
-                    <h3>塑膠污染</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'plastic')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-recycle"></i>
-                    <h3>減塑政策</h3>
-                    <p>解方：推動減塑政策與使用替代方案，減少生產過程中的環境污染。</p>
-                    <button class="read-more-btn btn-back">返回</button>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>過度消費</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'consumption')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>永續消費模式</h3>
+                        <p>解方：建立永續消費模式，透過分析習慣提供建議。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'consumption')">實踐方法</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-apple-alt"></i>
-                    <h3>資源與食物浪費</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'food')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-utensils"></i>
-                    <h3>循環利用</h3>
-                    <p>解方：提升資源回收效率、落實垃圾分類，推動循環利用。</p>
-                    <button class="read-more-btn btn-back">返回</button>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-box-open"></i>
+                        <h3>塑膠污染</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'plastic')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-recycle"></i>
+                        <h3>減塑政策</h3>
+                        <p>解方：推動減塑政策與使用替代方案，減少污染。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'plastic')">實踐方法</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>快時尚衝擊</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'fashion')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-leaf"></i>
-                    <h3>慢時尚</h3>
-                    <p>解方：選擇高品質耐穿衣物，參與衣物修補與二手交換。</p>
-                    <button class="read-more-btn btn-back">返回</button>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-apple-alt"></i>
+                        <h3>資源與食物浪費</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'food')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-utensils"></i>
+                        <h3>循環利用</h3>
+                        <p>解方：提升回收效率、落實分類，推動循環利用。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'food')">實踐方法</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-laptop"></i>
-                    <h3>電子垃圾</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'electronics')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-microchip"></i>
-                    <h3>延長使用壽命</h3>
-                    <p>解方：延長使用壽命，並透過專業回收管道提取可再利用資源。</p>
-                    <button class="read-more-btn btn-back">返回</button>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>快時尚衝擊</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'fashion')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-leaf"></i>
+                        <h3>慢時尚</h3>
+                        <p>解方：選擇高品質耐穿衣物，參與二手交換。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'fashion')">實踐方法</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flip-card" onclick="toggleFlip(this)">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <i class="fas fa-bolt"></i>
-                    <h3>能源浪費</h3>
-                    <button class="read-more-btn" onclick="showDetail(event, 'energy')">點擊查看更多</button>
-                </div>
-                <div class="flip-card-back">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>節能行動</h3>
-                    <p>解方：隨手關燈、使用節能家電，培養低碳生活習慣。</p>
-                    <button class="read-more-btn btn-back">返回</button>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-laptop"></i>
+                        <h3>電子垃圾</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'electronics')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-microchip"></i>
+                        <h3>延長使用壽命</h3>
+                        <p>解方：透過維修與專業回收管道提取再利用資源。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'electronics')">實踐方法</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-bolt"></i>
+                        <h3>能源浪費</h3>
+                        <button class="read-more-btn" onclick="showDetail(event, 'energy')">問題診斷</button>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>節能行動</h3>
+                        <p>解方：隨手關燈、使用節能家電，培養低碳習慣。</p>
+                        <button class="read-more-btn" onclick="showDetail(event, 'energy')">實踐方法</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <div class="info-overlay" id="infoOverlay" onclick="closeDetail()">
         <div class="info-card" onclick="event.stopPropagation()">
             <span class="close-overlay" onclick="closeDetail()">&times;</span>
             <div id="info-content">
-            </div>
+                </div>
         </div>
     </div>
 
@@ -531,49 +532,100 @@
     <script>
         const detailData = {
             consumption: {
-                title: "過度消費",
-                cause: "現代社會追求快節奏消費與廣告誘導，導致資源過度消耗。",
-                harm: "產生大量垃圾，過度開採自然資源，加劇生態失衡。"
+                title: ["問題：過度消費", "解方：永續消費模式"],
+                issue: {
+                    cause: "追求快節奏消費與廣告誘導，導致資源過度消耗。",
+                    harm: "產生大量垃圾，過度開採自然資源，加劇生態失衡。"
+                },
+                solution: {
+                    method: "採行「計畫性購物」，優先選擇具循環標章的產品，減少衝動性購買。",
+                    effect: "從源頭降低資源開採壓力，並減少家中不必要的雜物堆積。"
+                }
             },
             plastic: {
-                title: "塑膠污染",
-                cause: "一次性塑膠製品（如包裝、瓶裝水）因廉價便利而被大量使用。",
-                harm: "塑膠微粒進入生物鏈，造成海洋生態浩劫，甚至影響人類健康。"
+                title: ["問題：塑膠污染", "解方：全面減塑行動"],
+                issue: {
+                    cause: "一次性塑膠製品（如包裝、瓶裝水）因廉價便利而被過度使用。",
+                    harm: "塑膠微粒進入生物鏈，造成海洋生態浩劫，甚至影響人類健康。"
+                },
+                solution: {
+                    method: "推動無包裝商店模式，使用生物可分解材料替代一次性塑膠。",
+                    effect: "顯著降低流入海洋的塑膠廢棄物數量，維持海洋生態系的潔淨。"
+                }
             },
             food: {
-                title: "資源與食物浪費",
-                cause: "生產過剩、供應鏈不效率或個人飲食計畫不周。",
-                harm: "廢棄食物在腐爛時產生強烈溫室氣體（甲烷），浪費珍貴水資源。"
+                title: ["問題：食物浪費", "解方：剩食循環利用"],
+                issue: {
+                    cause: "生產過剩、供應鏈不效率或個人飲食計畫不周導致棄置。",
+                    harm: "廢棄食物腐爛產生甲烷（溫室氣體），並造成耕種水資源的浪費。"
+                },
+                solution: {
+                    method: "推廣格外品（醜蔬果）利用，建立社區分享冰箱減少家庭剩食。",
+                    effect: "減少垃圾處理負擔，並提升糧食分配的效率與公平性。"
+                }
             },
             fashion: {
-                title: "快時尚衝擊",
-                cause: "低成本大量生產衣物，追求極短的流行週期。",
-                harm: "紡織業是全球第二大水污染源，產生驚人的廢棄織物與染料污染。"
+                title: ["問題：快時尚衝擊", "解方：慢時尚精神"],
+                issue: {
+                    cause: "低成本大量生產衣物，追求極短的流行週期與低廉售價。",
+                    harm: "紡織業是全球主要水污染源，且產生驚人的廢棄織物與染料污染。"
+                },
+                solution: {
+                    method: "選擇公平貿易與天然纖維衣物，推廣衣物修補服務與二手衣交換。",
+                    effect: "降低生產過程中的水資源污染，並延長高品質織品的生命週期。"
+                }
             },
             electronics: {
-                title: "電子垃圾",
-                cause: "電子產品汰換速度極快，維修成本高於購買新品。",
-                harm: "重金屬如鉛、汞滲入土壤與地下水，對環境造成長期毒性損害。"
+                title: ["問題：電子垃圾", "解方：維修與資源循環"],
+                issue: {
+                    cause: "產品汰換速度快，且設計上維修困難或成本高於購買新品。",
+                    harm: "重金屬如鉛、汞滲入土壤與地下水，對環境造成長期毒性損害。"
+                },
+                solution: {
+                    method: "建立專業回收體系提取稀有貴金屬，並推廣「維修權」讓產品易於修理。",
+                    effect: "減少礦產開採的破壞，並實現材料的閉環循環利用。"
+                }
             },
             energy: {
-                title: "能源浪費",
-                cause: "工業化生產、不當的電力使用與低效能家電。",
-                harm: "大幅增加碳排放量，直接導致全球氣候暖化與極端天氣。"
+                title: ["問題：能源浪費", "解方：低碳能源生活"],
+                issue: {
+                    cause: "不當的電力使用習慣與低效能家電，造成能源無端損耗。",
+                    harm: "大幅增加碳排放量，直接加劇全球氣候暖化與極端天氣。"
+                },
+                solution: {
+                    method: "升級智慧節能電網，換用一級節能標章家電，並改善室內採光通風。",
+                    effect: "有效降低個人與社會整體的用電峰值，逐步達成減碳目標。"
+                }
             }
         };
 
         function showDetail(event, key) {
-            event.stopPropagation();
+            event.stopPropagation(); // 防止點擊按鈕時觸發卡片翻轉
+            
+            const card = event.target.closest('.flip-card');
+            const isFlipped = card.classList.contains('is-flipped');
             const data = detailData[key];
             const content = document.getElementById('info-content');
             
-            content.innerHTML = `
-                <h3>${data.title}</h3>
-                <h4><i class="fas fa-exclamation-circle"></i> 造成的原因</h4>
-                <p>${data.cause}</p>
-                <h4><i class="fas fa-biohazard"></i> 會造成的危害</h4>
-                <p>${data.harm}</p>
-            `;
+            if (!isFlipped) {
+                // 顯示正面對應的「問題」資訊
+                content.innerHTML = `
+                    <h3 style="color:var(--accent-orange)"><i class="fas fa-exclamation-triangle"></i> ${data.title[0]}</h3>
+                    <h4><i class="fas fa-question-circle"></i> 造成的原因</h4>
+                    <p>${data.issue.cause}</p>
+                    <h4><i class="fas fa-biohazard"></i> 會造成的危害</h4>
+                    <p>${data.issue.harm}</p>
+                `;
+            } else {
+                // 顯示背面對應的「解方」資訊
+                content.innerHTML = `
+                    <h3 style="color:var(--primary-green)"><i class="fas fa-lightbulb"></i> ${data.title[1]}</h3>
+                    <h4><i class="fas fa-tools"></i> 具體實施方法</h4>
+                    <p>${data.solution.method}</p>
+                    <h4><i class="fas fa-chart-line"></i> 預期改善成效</h4>
+                    <p>${data.solution.effect}</p>
+                `;
+            }
             
             document.getElementById('infoOverlay').style.display = 'flex';
         }
@@ -586,6 +638,7 @@
             card.classList.toggle('is-flipped');
         }
 
+        // 雷達圖初始化
         const ctx = document.getElementById('radarChart').getContext('2d');
         let radarChart = new Chart(ctx, {
             type: 'radar',
@@ -631,7 +684,6 @@
     </script>
 </body>
 </html>
-            
             document.getElementById('personalized-advice').innerText = advice;
         }
     </script>
