@@ -355,19 +355,221 @@
         <p>SDG 12 責任消費與生產</p>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">關於我們</h2>
-        <div class="about-grid">
-            <div class="about-card">
-                <h3>問題意識</h3>
-                <p>現代社會存在過度消費、塑膠污染與食物浪費等問題。我們希望透過本網站，讓使用者了解自身的消費習慣對環境的影響。</p>
-            </div>
-            <div class="about-card">
-                <h3>我們的理念</h3>
-                <p>我們致力於將永續發展目標 (SDG 12) 轉化為簡單的日常生活指標，讓每個人都能成為改變的一份子。</p>
+    <section id="about-mindmap">
+    <h2 class="about-title">關於我們</h2>
+    <div class="map-container">
+        <svg class="map-svg" viewBox="0 0 1000 600">
+            <g class="lines-group"></g>
+        </svg>
+
+        <div class="center-core">
+            <h3>ECO PULSE</h3>
+        </div>
+
+        <div class="node" data-pos="lt" data-info="推廣 SDG12 理念，透過數據分析減少資源浪費，從源頭守護地球環境。">
+            <div class="node-text">
+                <span class="icon">🌲</span>
+                <h4>核心背景</h4>
             </div>
         </div>
-    </section>
+        <div class="node" data-pos="lm" data-info="塑膠污染與食物浪費嚴重影響未來，我們致力於喚起大眾對消費習慣的警覺。">
+            <div class="node-text">
+                <span class="icon">❗</span>
+                <h4>問題意識</h4>
+            </div>
+        </div>
+        <div class="node" data-pos="lb" data-info="將永續融入日常，讓每個人都能看到自己小行為對環境產生的巨大正面改變。">
+            <div class="node-text">
+                <span class="icon">⛳</span>
+                <h4>團隊目標</h4>
+            </div>
+        </div>
+        
+        <div class="node" data-pos="rt" data-info="提供環保雷達圖與個人化建議，結合互動任務讓減碳行動變得好玩又簡單。">
+            <div class="node-text">
+                <span class="icon">💡</span>
+                <h4>網站特色</h4>
+            </div>
+        </div>
+        <div class="node" data-pos="rm" data-info="Small Actions, Big Impact. 永續從消費開始，聰明選擇創造美好明天。">
+            <div class="node-text">
+                <span class="icon">🌱</span>
+                <h4>核心價值</h4>
+            </div>
+        </div>
+        <div class="node" data-pos="rb" data-info="將複雜條文轉化為真實體驗，讓環保成為每個人在生活中觸手可及的行動。">
+            <div class="node-text">
+                <span class="icon">🌿</span>
+                <h4>我們的理念</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #about-mindmap {
+        padding: 60px 0;
+        background-color: #F4F1DE; 
+        overflow: hidden;
+        position: relative;
+    }
+    .about-title {
+        text-align: center;
+        color: #4A7C59;
+        font-size: 2.6rem;
+        margin-bottom: 30px;
+    }
+    .map-container {
+        position: relative;
+        width: 1000px;
+        height: 580px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .center-core {
+        background: #4A7C59;
+        color: white;
+        padding: 35px 60px;
+        border-radius: 60px;
+        z-index: 100;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border: 4px solid #fff;
+    }
+    .center-core h3 { font-size: 2.3rem; margin: 0; }
+
+    .node {
+        position: absolute;
+        width: 160px; 
+        height: 110px;
+        background: white;
+        border: 2.5px solid #4A7C59;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 50;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        animation: growOut 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        opacity: 0;
+    }
+
+    .node-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .icon { font-size: 1.8rem; margin-bottom: 5px; color: #4A7C59; }
+    .node h4 { margin: 0; color: #4A7C59; font-size: 1.25rem; font-weight: bold; }
+
+    /* 原地放大，不產生位移 */
+    .node:hover { 
+        transform: scale(1.1) !important; 
+        box-shadow: 0 12px 25px rgba(74, 124, 89, 0.15);
+    }
+
+    @keyframes growOut {
+        0% { transform: scale(0); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 詳細資訊浮窗 */
+    .detail-pop {
+        position: absolute;
+        background: white;
+        border-left: 6px solid #4A7C59;
+        padding: 18px;
+        width: 260px;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        z-index: 200;
+        font-size: 1.05rem;
+        color: #333;
+        line-height: 1.6;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .detail-pop.show { opacity: 1; }
+
+    /* 位置設定 (使用 calc 確保置中且避免 translateY 衝突) */
+    .node[data-pos="lt"] { top: 10%; left: 25%; }
+    .node[data-pos="lm"] { top: calc(50% - 55px); left: 15%; }
+    .node[data-pos="lb"] { bottom: 10%; left: 25%; }
+    .node[data-pos="rt"] { top: 10%; right: 25%; }
+    .node[data-pos="rm"] { top: calc(50% - 55px); right: 15%; }
+    .node[data-pos="rb"] { bottom: 10%; right: 25%; }
+
+    .map-svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
+    .map-line { stroke: #4A7C59; stroke-width: 2.2; opacity: 0.2; fill: none; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: drawLine 1.2s ease-out 0.5s forwards; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.map-container');
+        const nodes = document.querySelectorAll('.node');
+        const linesGroup = document.querySelector('.lines-group');
+        const center = document.querySelector('.center-core');
+
+        function drawLines() {
+            linesGroup.innerHTML = '';
+            const containerRect = container.getBoundingClientRect();
+            const cRect = center.getBoundingClientRect();
+            const cx = cRect.left + cRect.width / 2 - containerRect.left;
+            const cy = cRect.top + cRect.height / 2 - containerRect.top;
+
+            nodes.forEach(node => {
+                const nRect = node.getBoundingClientRect();
+                const nx = nRect.left + nRect.width / 2 - containerRect.left;
+                const ny = nRect.top + nRect.height / 2 - containerRect.top;
+                const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                line.setAttribute("x1", cx); line.setAttribute("y1", cy);
+                line.setAttribute("x2", nx); line.setAttribute("y2", ny);
+                line.setAttribute("class", "map-line");
+                linesGroup.appendChild(line);
+            });
+        }
+
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                const info = node.getAttribute('data-info');
+                const pos = node.getAttribute('data-pos');
+                const detail = document.createElement('div');
+                detail.className = 'detail-pop';
+                detail.innerHTML = `<p>${info}</p>`;
+                container.appendChild(detail); // 改為附加到 container 以便定位
+
+                const rect = node.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                // 相對於 container 定位
+                if (pos.includes('l')) {
+                    detail.style.left = (rect.left - containerRect.left - 280) + 'px';
+                } else {
+                    detail.style.left = (rect.right - containerRect.left + 20) + 'px';
+                }
+                detail.style.top = (rect.top - containerRect.top - 10) + 'px';
+                
+                // 強制重繪後顯示
+                setTimeout(() => detail.classList.add('show'), 10);
+                node._detailElement = detail;
+            });
+
+            node.addEventListener('mouseleave', () => {
+                if (node._detailElement) {
+                    node._detailElement.classList.remove('show');
+                    // 等待淡出動畫完成後移除
+                    const el = node._detailElement;
+                    setTimeout(() => el.remove(), 200);
+                    node._detailElement = null;
+                }
+            });
+        });
+
+        window.addEventListener('resize', drawLines);
+        setTimeout(drawLines, 1000); 
+    });
+</script>
 
     <section id="issues" style="background-color: #E9EDC9;">
         <h2 class="section-title">問題與解決方案</h2>
