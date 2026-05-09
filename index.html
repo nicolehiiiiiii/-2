@@ -246,7 +246,9 @@
         .info-card {
             background: white;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px; /* 調寬一點 */
+            max-height: 85vh; /* 限制高度 */
+            overflow-y: auto; /* 超出時出現捲軸 */
             padding: 40px;
             border-radius: 20px;
             position: relative;
@@ -857,104 +859,114 @@
         element.classList.toggle('is-flipped');
     }
             const detailData = {
-            consumption: {
-                title: ["問題：過度消費", "解方：永續消費模式"],
-                issue: {
-                    cause: "追求快節奏消費與廣告誘導，導致資源過度消耗。",
-                    harm: "產生大量垃圾，過度開採自然資源，加劇生態失衡。"
-                },
-                solution: {
-                    method: "採行「計畫性購物」，優先選擇具循環標章的產品，減少衝動性購買。",
-                    effect: "從源頭降低資源開採壓力，並減少家中不必要的雜物堆積。"
-                }
-            },
-            plastic: {
-                title: ["問題：塑膠污染", "解方：全面減塑行動"],
-                issue: {
-                    cause: "一次性塑膠製品（如包裝、瓶裝水）因廉價便利而被過度使用。",
-                    harm: "塑膠微粒進入生物鏈，造成海洋生態浩劫，甚至影響人類健康。"
-                },
-                solution: {
-                    method: "推動無包裝商店模式，使用生物可分解材料替代一次性塑膠。",
-                    effect: "顯著降低流入海洋的塑膠廢棄物數量，維持海洋生態系的潔淨。"
-                }
-            },
-            food: {
-                title: ["問題：食物浪費", "解方：剩食循環利用"],
-                issue: {
-                    cause: "生產過剩、供應鏈不效率或個人飲食計畫不周導致棄置。",
-                    harm: "廢棄食物腐爛產生甲烷（溫室氣體），並造成耕種水資源的浪費。"
-                },
-                solution: {
-                    method: "推廣格外品（醜蔬果）利用，建立社區分享冰箱減少家庭剩食。",
-                    effect: "減少垃圾處理負擔，並提升糧食分配的效率與公平性。"
-                }
-            },
-            fashion: {
-                title: ["問題：快時尚衝擊", "解方：慢時尚精神"],
-                issue: {
-                    cause: "低成本大量生產衣物，追求極短的流行週期與低廉售價。",
-                    harm: "紡織業是全球主要水污染源，且產生驚人的廢棄織物與染料污染。"
-                },
-                solution: {
-                    method: "選擇公平貿易與天然纖維衣物，推廣衣物修補服務與二手衣交換。",
-                    effect: "降低生產過程中的水資源污染，並延長高品質織品的生命週期。"
-                }
-            },
-            electronics: {
-                title: ["問題：電子垃圾", "解方：維修與資源循環"],
-                issue: {
-                    cause: "產品汰換速度快，且設計上維修困難或成本高於購買新品。",
-                    harm: "重金屬如鉛、汞滲入土壤與地下水，對環境造成長期毒性損害。"
-                },
-                solution: {
-                    method: "建立專業回收體系提取稀有貴金屬，並推廣「維修權」讓產品易於修理。",
-                    effect: "減少礦產開採的破壞，並實現材料的閉環循環利用。"
-                }
-            },
-            energy: {
-                title: ["問題：能源浪費", "解方：低碳能源生活"],
-                issue: {
-                    cause: "不當的電力使用習慣與低效能家電，造成能源無端損耗。",
-                    harm: "大幅增加碳排放量，直接加劇全球氣候暖化與極端天氣。"
-                },
-                solution: {
-                    method: "升級智慧節能電網，換用一級節能標章家電，並改善室內採光通風。",
-                    effect: "有效降低個人與社會整體的用電峰值，逐步達成減碳目標。"
-                }
-            }
-        };
+    consumption: {
+        title: ["問題：過度消費", "解方：永續消費模式"],
+        issue: {
+            cause: "追求快節奏消費與廣告誘導，導致資源過度消耗。",
+            harm: "產生大量垃圾，過度開採自然資源，加劇生態失衡。",
+            media: `<img src="https://images.unsplash.com/photo-1531353826977-0941b3279a54?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Shopping Mall">`
+        },
+        solution: {
+            method: "採行「計畫性購物」，優先選擇具循環標章的產品，減少衝動性購買。",
+            effect: "從源頭降低資源開採壓力，並減少家中不必要的雜物堆積。",
+            media: `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://www.youtube.com/embed/YvAnX6kY9j0" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;" frameborder="0" allowfullscreen></iframe></div>`
+        }
+    },
+    plastic: {
+        title: ["問題：塑膠污染", "解方：全面減塑行動"],
+        issue: {
+            cause: "一次性塑膠製品因廉價便利而被過度使用。",
+            harm: "塑膠微粒進入生物鏈，造成海洋生態浩劫，影響人類健康。",
+            media: `<img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Plastic Pollution">`
+        },
+        solution: {
+            method: "推動無包裝商店模式，使用生物可分解材料替代一次性塑膠。",
+            effect: "顯著降低流入海洋的塑膠廢棄物數量，維持生態潔淨。",
+            media: `<img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Eco Bag">`
+        }
+    },
+    food: {
+        title: ["問題：食物浪費", "解方：剩食循環利用"],
+        issue: {
+            cause: "供應鏈不效率或個人飲食計畫不周導致棄置。",
+            harm: "產生甲烷溫室氣體，並造成耕種水資源的浪費。",
+            media: `<img src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Food Waste">`
+        },
+        solution: {
+            method: "推廣格外品利用，建立社區分享冰箱減少家庭剩食。",
+            effect: "減少垃圾處理負擔，提升糧食分配效率。",
+            media: `<img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Fresh Market">`
+        }
+    },
+    fashion: {
+        title: ["問題：快時尚衝擊", "解方：慢時尚精神"],
+        issue: {
+            cause: "追求極短流行週期，產生驚人的廢棄織物。",
+            harm: "紡織業是全球主要水污染源，消耗大量廉價勞動力。",
+            media: `<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Clothing Waste">`
+        },
+        solution: {
+            method: "選擇公平貿易衣物，推廣衣物修補服務與二手衣交換。",
+            effect: "降低水資源污染，實現服飾循環經濟。",
+            media: `<img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Quality Clothes">`
+        }
+    },
+    electronics: {
+        title: ["問題：電子垃圾", "解方：維修與資源循環"],
+        issue: {
+            cause: "產品汰換速度快，重金屬滲入土壤與地下水。",
+            harm: "對環境造成長期毒性損害，浪費稀有金屬資源。",
+            media: `<img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Electronic Waste">`
+        },
+        solution: {
+            method: "建立專業回收體系提取貴金屬，推廣「維修權」。",
+            effect: "減少礦產開採破壞，實現材料閉環利用。",
+            media: `<img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Tech Repair">`
+        }
+    },
+    energy: {
+        title: ["問題：能源浪費", "解方：低碳能源生活"],
+        issue: {
+            cause: "不當電力使用習慣與低效能家電，造成能源損耗。",
+            harm: "大幅增加碳排放量，加劇全球氣候暖化。",
+            media: `<img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Energy Waste">`
+        },
+        solution: {
+            method: "換用節能標章家電，改善室內採光與通風。",
+            effect: "降低用電峰值，逐步達成社會減碳目標。",
+            media: `<img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; margin:10px 0;" alt="Solar Energy">`
+        }
+    }
+};
 
         function showDetail(event, key) {
-            event.stopPropagation(); // 防止點擊按鈕時觸發卡片翻轉
-            
-            const card = event.target.closest('.flip-card');
-            const isFlipped = card.classList.contains('is-flipped');
-            const data = detailData[key];
-            const content = document.getElementById('info-content');
-            
-            if (!isFlipped) {
-                // 顯示正面對應的「問題」資訊
-                content.innerHTML = `
-                    <h3 style="color:var(--accent-orange)"><i class="fas fa-exclamation-triangle"></i> ${data.title[0]}</h3>
-                    <h4><i class="fas fa-question-circle"></i> 造成的原因</h4>
-                    <p>${data.issue.cause}</p>
-                    <h4><i class="fas fa-biohazard"></i> 會造成的危害</h4>
-                    <p>${data.issue.harm}</p>
-                `;
-            } else {
-                // 顯示背面對應的「解方」資訊
-                content.innerHTML = `
-                    <h3 style="color:var(--primary-green)"><i class="fas fa-lightbulb"></i> ${data.title[1]}</h3>
-                    <h4><i class="fas fa-tools"></i> 具體實施方法</h4>
-                    <p>${data.solution.method}</p>
-                    <h4><i class="fas fa-chart-line"></i> 預期改善成效</h4>
-                    <p>${data.solution.effect}</p>
-                `;
-            }
-            
-            document.getElementById('infoOverlay').style.display = 'flex';
-        }
+    event.stopPropagation();
+    
+    const card = event.target.closest('.flip-card');
+    const isFlipped = card.classList.contains('is-flipped');
+    const data = detailData[key];
+    const content = document.getElementById('info-content');
+    
+    if (!isFlipped) {
+        content.innerHTML = `
+            <h3 style="color:var(--accent-orange)"><i class="fas fa-exclamation-triangle"></i> ${data.title[0]}</h3>
+            ${data.issue.media} <h4><i class="fas fa-question-circle"></i> 造成的原因</h4>
+            <p>${data.issue.cause}</p>
+            <h4><i class="fas fa-biohazard"></i> 會造成的危害</h4>
+            <p>${data.issue.harm}</p>
+        `;
+    } else {
+        content.innerHTML = `
+            <h3 style="color:var(--primary-green)"><i class="fas fa-lightbulb"></i> ${data.title[1]}</h3>
+            ${data.solution.media} <h4><i class="fas fa-tools"></i> 具體實施方法</h4>
+            <p>${data.solution.method}</p>
+            <h4><i class="fas fa-chart-line"></i> 預期改善成效</h4>
+            <p>${data.solution.effect}</p>
+        `;
+    }
+    
+    document.getElementById('infoOverlay').style.display = 'flex';
+}
 
         function closeDetail() {
             document.getElementById('infoOverlay').style.display = 'none';
